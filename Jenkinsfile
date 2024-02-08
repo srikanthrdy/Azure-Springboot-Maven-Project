@@ -33,7 +33,7 @@ pipeline {
         script{
           // withMaven(globalMavenSettingsConfig: '', jdk: 'java', maven: 'maven', mavenSettingsConfig: '', traceability: true) {
               mvn clean verify sonar:sonar -Dsonar.projectKey=maven-app -Dsonar.projectName='maven-app' -Dsonar.host.url=http://localhost:9001 -Dsonar.token=sqp_2a72d45530cf4ac6952ca6a2a174a8d49f9994c3
-           }
+          // }
        }
       }
      }
