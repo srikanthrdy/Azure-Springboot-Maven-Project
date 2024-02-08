@@ -3,13 +3,7 @@ pipeline {
   dockerimagename = "sr79979/maven-app"
   dockerImage = ""
   }
-  agent {
-  label {
-    label 'Srikanth Girimaiahgari'
-    retries 2
-  }
-}
-
+  agent any
 
   stages {
 
