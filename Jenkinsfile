@@ -26,7 +26,7 @@ pipeline {
       steps{
         script{
            withMaven(globalMavenSettingsConfig: '', jdk: '', maven: 'maven', mavenSettingsConfig: '', traceability: true) {
-            sh 'mvn clean verify sonar:sonar -Dsonar.projectKey=maven-app -Dsonar.projectName='maven-app' -Dsonar.host.url=http://localhost:9001 -Dsonar.token=sqp_2a72d45530cf4ac6952ca6a2a174a8d49f9994c3'
+            sh 'mvn clean verify sonar:sonar -Dsonar.host.url=http://localhost:9001 -Dsonar.token=sqp_2a72d45530cf4ac6952ca6a2a174a8d49f9994c3'
            }
         }
       }
