@@ -22,25 +22,21 @@ pipeline {
      stage('Maven Build'){
       steps{
         script{
-          //withMaven(globalMavenSettingsConfig: '', jdk: 'java', maven: 'maven', mavenSettingsConfig: '', traceability: true) {
-               mvn clean package
-       // } 
+          withMaven(globalMavenSettingsConfig: '', jdk: 'java', maven: 'maven', mavenSettingsConfig: '', traceability: true) {
+             sh 'mvn clean package'
+          } 
         }
       }
-     }
-      
-      
-      
-      
+    }
       stage('SonarQube'){
       steps{
         script{
-          // withMaven(globalMavenSettingsConfig: '', jdk: 'java', maven: 'maven', mavenSettingsConfig: '', traceability: true) {
+           withMaven(globalMavenSettingsConfig: '', jdk: 'java', maven: 'maven', mavenSettingsConfig: '', traceability: true) {
               mvn clean verify sonar:sonar -Dsonar.projectKey=maven-app -Dsonar.projectName='maven-app' -Dsonar.host.url=http://localhost:9001 -Dsonar.token=sqp_2a72d45530cf4ac6952ca6a2a174a8d49f9994c3
-          // }
-       }
+           }
+        }
       }
-     }
+    }
     stage('Build image'){
        steps{
            script{
