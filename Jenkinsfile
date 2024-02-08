@@ -4,11 +4,13 @@ pipeline {
   dockerImage = ""
   }
   agent {
-  label {
-    label 'Srikanth Girimaiahgari'
-    retries 2
+  docker {
+    image 'sr79979/myubuntu'
+    registryCredentialsId 'Dockerhub-Credential'
+    registryUrl 'https://hub.docker.com/'
   }
 }
+
 
 
   stages {
