@@ -26,7 +26,7 @@ pipeline {
       steps{
         script{
            withMaven(globalMavenSettingsConfig: '', jdk: '', maven: 'maven', mavenSettingsConfig: '', traceability: true) {
-            sh 'mvn clean verify sonar:sonar -Dsonar.host.url=http://localhost:9001 -Dsonar.token=sqp_2a72d45530cf4ac6952ca6a2a174a8d49f9994c3'
+            sh 'mvn clean verify sonar:sonar   -Dsonar.projectKey=Azure-Springboot-Maven-Project   -Dsonar.projectName='Azure-Springboot-Maven-Project'   -Dsonar.host.url=http://localhost:9000   -Dsonar.token=sqp_99e88202e7bfd51e18c4f860af60609ff9f383d3'
            }
         }
       }
