@@ -19,7 +19,7 @@ pipeline {
       steps{
         script{
            withMaven(globalMavenSettingsConfig: '', jdk: '', maven: 'Maven', mavenSettingsConfig: '', traceability: true) {
-            sh 'mvn sonar:sonar -Dsonar.projectKey=Azure-Springboot-Maven-Project -Dsonar.projectName='Azure-Springboot-Maven-Project' -Dsonar.host.url=http://localhost:9000 -Dsonar.login=admin -Dsonar.password=admin123'
+            sh 'mvn sonar:sonar -Dsonar.host.url=http://localhost:9000 -Dsonar.login='admin' -Dsonar.password='admin123''
            }
         }
       }
