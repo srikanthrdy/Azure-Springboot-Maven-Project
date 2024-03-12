@@ -27,22 +27,23 @@ pipeline {
     stage('Build image'){
        steps{
            script{
-             dockerImage=docker.build dockerimagename + ":$BUILD_NUMBER"
+             // dockerImage=docker.build dockerimagename + ":$BUILD_NUMBER"
+             sh 'docker build -t maven-app:v1 .'
            }
        }
     }
 
-     stage('Pushing Image'){
-       environment{
-         rigistryCredential = "Dockerhub-Credential"
-       }
-       steps{
-          script{
-            docker.withRegistry ('https://registry.hub.docker.com', rigistryCredential ){
-              dockerImage.push("latest")
-            }
-          }
-       }
+     // stage('Pushing Image'){
+     //   environment{
+     //     rigistryCredential = "Dockerhub-Credential"
+     //   }
+     //   steps{
+     //      script{
+     //        docker.withRegistry ('https://registry.hub.docker.com', rigistryCredential ){
+     //          dockerImage.push("latest")
+     //        }
+     //      }
+     //   }
      }
 
     // stage('Deploying Spring container to Kubernetes') {
@@ -55,5 +56,5 @@ pipeline {
     //     }
     //   }
     // }
-  }
-}
+  // }
+ }
