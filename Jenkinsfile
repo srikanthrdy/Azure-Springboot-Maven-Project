@@ -9,7 +9,7 @@ pipeline {
      stage('Maven Build'){
       steps{
         script{
-          withMaven(globalMavenSettingsConfig: '', jdk: '', maven: '', mavenSettingsConfig: '', traceability: true) {
+          withMaven(globalMavenSettingsConfig: '', jdk: '', maven: 'Maven', mavenSettingsConfig: '', traceability: true) {
              sh 'mvn clean package'
           } 
         }
