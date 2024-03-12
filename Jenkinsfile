@@ -11,7 +11,7 @@ pipeline {
         script{
            withMaven(globalMavenSettingsConfig: '', jdk: '', maven: '', mavenSettingsConfig: '', traceability: true) {
              sh 'mvn clean package'
-          // } 
+           } 
         }
       }
     }
