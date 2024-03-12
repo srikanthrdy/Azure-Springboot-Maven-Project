@@ -17,6 +17,12 @@
 	<properties>
 		<java.version>11</java.version>
 	</properties>
+	 <!-- SonarQube Properties -->
+        <properties>
+         <sonar.login>admin</sonar.login>
+         <sonar.password>admin123</sonar.password>
+         <sonar.host.url>http://localhost:9000/</sonar.host.url>
+       </properties>
 
 	<dependencies>
 		<dependency>
