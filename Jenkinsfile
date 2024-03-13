@@ -41,7 +41,7 @@ pipeline {
     
       stage('Pushing Image'){
         steps{
-          scripts{ 
+          script{ 
                     docker.withRegistry('https://index.docker.io/v1/', DOCKER_CREDENTIALS) {
                        sh 'docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD'
           }
