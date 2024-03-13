@@ -1,5 +1,10 @@
 pipeline {
   agent any
+      environment {
+        DOCKER_CREDENTIALS = credentials('docker')
+    }
+
+
   stages {
     stage('Checkout Source') {
       steps {
@@ -28,24 +33,24 @@ pipeline {
        steps{
            script{
              // dockerImage=docker.build dockerimagename + ":$BUILD_NUMBER"
-             sh 'docker build -t maven-app:v1 .'
+             sh 'docker build -t maven-app:$BUILD_NUMBER .'
              sh 'docker images'
            }
        }
     }
-
-     // stage('Pushing Image'){
-     //   environment{
-     //     rigistryCredential = "Dockerhub-Credential"
-     //   }
-     //   steps{
-     //      script{
-     //        docker.withRegistry ('https://registry.hub.docker.com', rigistryCredential ){
-     //          dockerImage.push("latest")
-     //        }
-     //      }
-     //   }
-     }
+    
+      stage('Pushing Image'){
+        steps{
+          scripts{
+            
+            docker.withRegistry('https://index.docker.io/v1/', DOCKER_CREDENTIALS) {
+                        sh 'docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD'
+          }
+        }
+      }
+   }
+  }
+     
 
     // stage('Deploying Spring container to Kubernetes') {
     //   steps {
