@@ -42,7 +42,7 @@ pipeline {
       stage('Pushing Image'){
         steps{
           script{ 
-                    sh 'docker tag maven-app:$BUILD_NUMBER sr79979/maven-app:$BUILD_NUMBER
+                    sh 'docker tag maven-app:$BUILD_NUMBER sr79979/maven-app:$BUILD_NUMBER'
                     sh 'docker images'
                     withCredentials([usernamePassword(credentialsId: 'docker', usernameVariable: 'DOCKER_USERNAME', passwordVariable: 'DOCKER_PASSWORD')]) {
                        sh 'docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD'
