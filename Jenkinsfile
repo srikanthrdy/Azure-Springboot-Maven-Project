@@ -41,15 +41,14 @@ pipeline {
     
       stage('Pushing Image'){
         steps{
-          scripts{
-            
-            docker.withRegistry('https://index.docker.io/v1/', DOCKER_CREDENTIALS) {
-                        sh 'docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD'
+          scripts{ 
+                    docker.withRegistry('https://index.docker.io/v1/', DOCKER_CREDENTIALS) {
+                       sh 'docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD'
           }
         }
       }
    }
-  }
+ }
      
 
     // stage('Deploying Spring container to Kubernetes') {
