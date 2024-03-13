@@ -28,6 +28,7 @@ pipeline {
        steps{
            script{
              // dockerImage=docker.build dockerimagename + ":$BUILD_NUMBER"
+             sh 'chmod -R 755 /var/run/docker.sock'
              sh 'docker build -t maven-app:v1 .'
            }
        }
